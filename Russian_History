@@ -1,0 +1,1155 @@
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QPushButton
+from PyQt5.QtWidgets import QInputDialog, QLabel, QHBoxLayout
+from PyQt5.QtGui import QPixmap
+
+
+class Window1(QWidget):
+    def __init__(self):
+        super(Window1, self).__init__()
+        self.setWindowTitle('Первый вопрос')
+        self.setMinimumWidth(1000)
+        self.setMinimumHeight(400)
+        self.button = QPushButton(self)
+        self.button.setText('Далее')
+        self.button.show()
+        self.initUI()
+
+    def initUI(self):
+        self.button_1 = QPushButton(self)
+        self.button_1.move(20, 40)
+        self.button_1.setText("Открыть вопрос")
+        self.button_1.clicked.connect(self.run)
+
+        self.show()
+
+    def run(self):
+        i, okBtnPressed = QInputDialog.getItem(
+            self, 
+            "Год призвания варягов",
+            "В каком году был призван Рюрик ?",
+            ("850", "862", "912"),
+            1,
+            False
+        )
+        if i == '862':
+            MainWindow.statik_n += 1
+        print(i)
+        print(MainWindow.statik_n)
+        if okBtnPressed:
+            self.button_1.setText(i)
+
+class Window1_Answer(QWidget):
+    def __init__(self):
+        super(Window1_Answer, self).__init__()
+        self.setWindowTitle('Ответ на первый вопрос')
+        self.initUI()
+
+    def initUI(self):
+        self.label = QLabel(self)
+        self.label.setText("Рюрик был призван княжить на Русь в 862 году.")
+        self.label.move(300, 200)
+
+class Window1_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("que_1.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Que_1')
+        self.show()
+
+class Window1_Answer_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("rurik.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Rurik')
+        self.show()
+
+class Window2(QWidget):
+    def __init__(self):
+        super(Window2, self).__init__()
+        self.setWindowTitle('Второй вопрос')
+        self.setMinimumWidth(1000)
+        self.setMinimumHeight(400)
+        self.button = QPushButton(self)
+        self.button.setText('Далее')
+        self.button.show()
+        self.initUI()
+
+    def initUI(self):
+        self.button_1 = QPushButton(self)
+        self.button_1.move(20, 40)
+        self.button_1.setText("Открыть вопрос")
+        self.button_1.clicked.connect(self.run)
+ 
+        self.show()
+ 
+    def run(self):
+        i, okBtnPressed = QInputDialog.getItem(
+            self, 
+            "Прибитие щита на врата Цареграда",
+            "В каком году Олег прибил щит на врата Консантинополя ?",
+            ("891", "907", "945"),
+            1,
+            False
+        )
+        if i == '907':
+            MainWindow.statik_n += 1
+        print(i)
+        print(MainWindow.statik_n)
+        if okBtnPressed:
+            self.button_1.setText(i)
+
+class Window2_Answer(QWidget):
+    def __init__(self):
+        super(Window2_Answer, self).__init__()
+        self.setWindowTitle('Ответ на второй вопрос')
+        self.initUI()
+
+    def initUI(self):
+        self.label = QLabel(self)
+        self.label.setText("В 907 году князь Олег прибил свой щит на врата Константинополя.")
+        self.label.move(300, 200)
+
+class Window2_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("que_2.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Que_2')
+        self.show()
+
+class Window2_Answer_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("oleg_912.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Oleg_912')
+        self.show()
+
+class Window3(QWidget):
+    def __init__(self):
+        super(Window3, self).__init__()
+        self.setWindowTitle('Третий вопрос')
+        self.setMinimumWidth(1000)
+        self.setMinimumHeight(400)
+        self.button = QPushButton(self)
+        self.button.setText('Далее')
+        self.button.show()
+        self.initUI()
+
+    def initUI(self):
+        self.button_1 = QPushButton(self)
+        self.button_1.move(20, 40)
+        self.button_1.setText("Открыть вопрос")
+        self.button_1.clicked.connect(self.run)
+ 
+        self.show()
+ 
+    def run(self):
+        i, okBtnPressed = QInputDialog.getItem(
+            self, 
+            "Год Крещения Руси",
+            "В каком году Владимир крестил Русь ?",
+            ("966", "988", "1015"),
+            1,
+            False
+        )
+        if i == '988':
+            MainWindow.statik_n += 1
+        print(i)
+        print(MainWindow.statik_n)
+        if okBtnPressed:
+            self.button_1.setText(i)
+
+class Window3_Answer(QWidget):
+    def __init__(self):
+        super(Window3_Answer, self).__init__()
+        self.setWindowTitle('Ответ на третий вопрос')
+        self.initUI()
+
+    def initUI(self):
+        self.label = QLabel(self)
+        self.label.setText("В 988 году произошло Крещение Руси князем Владимиром.")
+        self.label.move(300, 200)
+
+class Window3_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("que_3.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Que_3')
+        self.show()
+
+class Window3_Answer_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("baptise.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Baptise')
+        self.show()
+
+class Window4(QWidget):
+    def __init__(self):
+        super(Window4, self).__init__()
+        self.setWindowTitle('Четвёртый вопрос')
+        self.setMinimumWidth(1000)
+        self.setMinimumHeight(400)
+        self.button = QPushButton(self)
+        self.button.setText('Далее')
+        self.button.show()
+        self.initUI()
+
+    def initUI(self):
+        self.button_1 = QPushButton(self)
+        self.button_1.move(20, 40)
+        self.button_1.setText("Открыть вопрос")
+        self.button_1.clicked.connect(self.run)
+ 
+        self.show()
+ 
+    def run(self):
+        i, okBtnPressed = QInputDialog.getItem(
+            self, 
+            "Владимир Мономах",
+            "В каком году умер Владимир Мономах ?",
+            ("1093", "1113", "1125", "1132"),
+            1,
+            False
+        )
+        if i == '1125':
+            MainWindow.statik_n += 1
+        print(i)
+        print(MainWindow.statik_n)
+        if okBtnPressed:
+            self.button_1.setText(i)
+
+class Window4_Answer(QWidget):
+    def __init__(self):
+        super(Window4_Answer, self).__init__()
+        self.setWindowTitle('Ответ на четвёртый вопрос')
+        self.initUI()
+
+    def initUI(self):
+        self.label = QLabel(self)
+        self.label.setText("Владимир Мономах умер в 1125 году.")
+        self.label.move(300, 200)
+
+class Window4_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("que_4.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Que_4')
+        self.show()
+
+class Window4_Answer_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("vladimir_monomah.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Vladimir_monomah')
+        self.show()
+
+class Window5(QWidget):
+    def __init__(self):
+        super(Window5, self).__init__()
+        self.setWindowTitle('Пятый вопрос')
+        self.setMinimumWidth(1000)
+        self.setMinimumHeight(400)
+        self.button = QPushButton(self)
+        self.button.setText('Далее')
+        self.button.show()
+        self.initUI()
+
+    def initUI(self):
+        self.button_1 = QPushButton(self)
+        self.button_1.move(20, 40)
+        self.button_1.setText("Открыть вопрос")
+        self.button_1.clicked.connect(self.run)
+ 
+        self.show()
+ 
+    def run(self):
+        i, okBtnPressed = QInputDialog.getItem(
+            self, 
+            "Последний Великий",
+            "Кто был последним великим князем Владимирским до монгольского ига ?",
+            ("Всеволод III", "Константин", "Юрий II", "Александр"),
+            1,
+            False
+        )
+        if i == 'Юрий II':
+            MainWindow.statik_n += 1
+        print(i)
+        print(MainWindow.statik_n)
+        if okBtnPressed:
+            self.button_1.setText(i)
+
+class Window5_Answer(QWidget):
+    def __init__(self):
+        super(Window5_Answer, self).__init__()
+        self.setWindowTitle('Ответ на пятый вопрос')
+        self.initUI()
+
+    def initUI(self):
+        self.label = QLabel(self)
+        self.label.setText("Последним великим князем владимирским до монгольского ига был Юрий ( Георгий ) II.")
+        self.label.move(300, 200)
+
+class Window5_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("que_5.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Que_5')
+        self.show()
+
+class Window5_Answer_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("Yuriy_II.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Yuriy_II')
+        self.show()
+
+class Window6(QWidget):
+    def __init__(self):
+        super(Window6, self).__init__()
+        self.setWindowTitle('Шестой вопрос')
+        self.setMinimumWidth(1000)
+        self.setMinimumHeight(400)
+        self.button = QPushButton(self)
+        self.button.setText('Далее')
+        self.button.show()
+        self.initUI()
+
+    def initUI(self):
+        self.button_1 = QPushButton(self)
+        self.button_1.move(20, 40)
+        self.button_1.setText("Открыть вопрос")
+        self.button_1.clicked.connect(self.run)
+ 
+        self.show()
+ 
+    def run(self):
+        i, okBtnPressed = QInputDialog.getItem(
+            self, 
+            "Враг Москвы",
+            "Какое княжество было главным противником Москвы ?",
+            ("Тверское", "Новгородское", "Ростовское", "Рязанское"),
+            1,
+            False
+        )
+        if i == 'Тверское':
+            MainWindow.statik_n += 1
+        print(i)
+        print(MainWindow.statik_n)
+        if okBtnPressed:
+            self.button_1.setText(i)
+class Window6_Answer(QWidget):
+    def __init__(self):
+        super(Window6_Answer, self).__init__()
+        self.setWindowTitle('Ответ на шестой вопрос')
+        self.initUI()
+
+    def initUI(self):
+        self.label = QLabel(self)
+        self.label.setText("Главным противником Москвы на начальном этапе собирания земель русских было Тверское княжество.")
+        self.label.move(300, 200)
+
+class Window6_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("que_6.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Que_6')
+        self.show()
+
+class Window6_Answer_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("rost_moskvy.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Rost_Moskvy')
+        self.show()
+
+class Window7(QWidget):
+    def __init__(self):
+        super(Window7, self).__init__()
+        self.setWindowTitle('Седьмой вопрос')
+        self.setMinimumWidth(1000)
+        self.setMinimumHeight(400)
+        self.button = QPushButton(self)
+        self.button.setText('Далее')
+        self.button.show()
+        self.initUI()
+
+    def initUI(self):
+        self.button_1 = QPushButton(self)
+        self.button_1.move(20, 40)
+        self.button_1.setText("Открыть вопрос")
+        self.button_1.clicked.connect(self.run)
+ 
+        self.show()
+ 
+    def run(self):
+        i, okBtnPressed = QInputDialog.getItem(
+            self, 
+            "Конец ига",
+            "В каком году закончилось татаро-монгольское иго ?",
+            ("1327", "1380", "1425", "1480"),
+            1,
+            False
+        )
+        if i == '1480':
+            MainWindow.statik_n += 1
+        print(i)
+        print(MainWindow.statik_n)
+        if okBtnPressed:
+            self.button_1.setText(i)
+
+class Window7_Answer(QWidget):
+    def __init__(self):
+        super(Window7_Answer, self).__init__()
+        self.setWindowTitle('Ответ на седьмой вопрос')
+        self.initUI()
+
+    def initUI(self):
+        self.label = QLabel(self)
+        self.label.setText("Татаро-монгольское иго закончилось в 1480 году")
+        self.label.move(300, 200)
+
+class Window7_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("que_7.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Que_7')
+        self.show()
+
+class Window7_Answer_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("ugra.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Ugra')
+        self.show()
+
+class Window8(QWidget):
+    def __init__(self):
+        super(Window8, self).__init__()
+        self.setWindowTitle('Восьмой вопрос')
+        self.setMinimumWidth(1000)
+        self.setMinimumHeight(400)
+        self.button = QPushButton(self)
+        self.button.setText('Далее')
+        self.button.show()
+        self.initUI()
+
+    def initUI(self):
+        self.button_1 = QPushButton(self)
+        self.button_1.move(20, 40)
+        self.button_1.setText("Открыть вопрос")
+        self.button_1.clicked.connect(self.run)
+ 
+        self.show()
+ 
+    def run(self):
+        i, okBtnPressed = QInputDialog.getItem(
+            self, 
+            "Лествиничное право",
+            "С именем какого князя связан конец лествичного права на Руси ?",
+            ("Дмитрия I", "Василия II", "Ивана III", "Ивана IV"),
+            1,
+            False
+        )
+        if i == 'Василия II':
+            MainWindow.statik_n += 1
+        print(i)
+        print(MainWindow.statik_n)
+        if okBtnPressed:
+            self.button_1.setText(i)
+
+class Window8_Answer(QWidget):
+    def __init__(self):
+        super(Window8_Answer, self).__init__()
+        self.setWindowTitle('Ответ на восьмой вопрос')
+        self.initUI()
+
+    def initUI(self):
+        self.label = QLabel(self)
+        self.label.setText("Гражданская война в Московском княжестве в правление Василия II положила конец лествичному праву на Руси.")
+        self.label.move(300, 200)
+
+class Window8_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("que_8.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Que_8')
+        self.show()
+
+class Window8_Answer_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("Vasiliy_II.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Vasiliy_II')
+        self.show()
+
+class Window9(QWidget):
+    def __init__(self):
+        super(Window9, self).__init__()
+        self.setWindowTitle('Девятый вопрос')
+        self.setMinimumWidth(1000)
+        self.setMinimumHeight(400)
+        self.button = QPushButton(self)
+        self.button.setText('Далее')
+        self.button.show()
+        self.initUI()
+
+    def initUI(self):
+        self.button_1 = QPushButton(self)
+        self.button_1.move(20, 40)
+        self.button_1.setText("Открыть вопрос")
+        self.button_1.clicked.connect(self.run)
+ 
+        self.show()
+ 
+    def run(self):
+        i, okBtnPressed = QInputDialog.getItem(
+            self, 
+            "Смена династии",
+            "В каком году пресеклась основная ветвь династии Рюриковичей ?",
+            ("1584", "1598", "1605", "1613"),
+            1,
+            False
+        )
+        if i == '1598':
+            MainWindow.statik_n += 1
+        print(i)
+        print(MainWindow.statik_n)
+        if okBtnPressed:
+            self.button_1.setText(i)
+
+class Window9_Answer(QWidget):
+    def __init__(self):
+        super(Window9_Answer, self).__init__()
+        self.setWindowTitle('Ответ на девятый вопрос')
+        self.initUI()
+
+    def initUI(self):
+        self.label = QLabel(self)
+        self.label.setText("Династия Рюриковичей по основной ( Московской ) линии пресеклась в 1598 году.")
+        self.label.move(300, 200)
+
+class Window9_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("que_9.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Que_9')
+        self.show()
+
+class Window9_Answer_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("1598.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('1598')
+        self.show()
+
+class Window10(QWidget):
+    def __init__(self):
+        super(Window10, self).__init__()
+        self.setWindowTitle('Десятый вопрос')
+        self.setMinimumWidth(1000)
+        self.setMinimumHeight(400)
+        self.button = QPushButton(self)
+        self.button.setText('Завершить')
+        self.button.show()
+        self.initUI()
+
+    def initUI(self):
+        self.button_1 = QPushButton(self)
+        self.button_1.move(20, 40)
+        self.button_1.setText("Открыть вопрос")
+        self.button_1.clicked.connect(self.run)
+ 
+        self.show()
+ 
+    def run(self):
+        i, okBtnPressed = QInputDialog.getItem(
+            self, 
+            "Российская Империя",
+            "В каком году была провозглашена Российская Империя ?",
+            ("1700", "1721", "1725", "1733"),
+            1,
+            False
+        )
+        if i == '1721':
+            MainWindow.statik_n += 1
+        print(i)
+        print(MainWindow.statik_n)
+        if okBtnPressed:
+            self.button_1.setText(i)
+
+class Window10_Answer(QWidget):
+    def __init__(self):
+        super(Window10_Answer, self).__init__()
+        self.setWindowTitle('Ответ на десятый вопрос')
+        self.setMinimumWidth(1000)
+        self.setMinimumHeight(400)
+        self.button = QPushButton(self)
+        self.button.setText('Подвести Итоги !')
+        self.button.show()
+        self.initUI()
+
+    def initUI(self):
+        self.label = QLabel(self)
+        self.label.setText("Российская Империя была провозглашена в 1721 году Петром I.")
+        self.label.move(300, 200)
+
+class Window10_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("que_10.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Que_10')
+        self.show()
+
+class Window10_Answer_Image(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        hbox = QHBoxLayout(self)
+        pixmap = QPixmap("rus_imp.png")
+        pixmap = pixmap.scaled(640, 600)
+        lbl = QLabel(self)
+        lbl.setPixmap(pixmap)
+        hbox.addWidget(lbl)
+        self.setLayout(hbox)
+
+        self.move(10, 10)
+        self.resize(40,40)
+        self.setWindowTitle('Rus_Imp')
+        self.show()
+
+class Window100(QWidget):
+    def __init__(self):
+        super(Window100, self).__init__()
+        self.setWindowTitle('Подведение Вашего Итога')
+        self.initUI()
+
+    def initUI(self):
+        self.label = QLabel(self)
+        if MainWindow.statik_n < 3:
+            self.label.setText("Вы ответили правильно меньше чем на треть вопросов !"+'\n'
+                               "Количество ваших правильных ответов : "+str(MainWindow.statik_n)+'\n'
+                               "Даже выбирая наобум вы бы набрали больше баллов !!!"+'\n'
+                               "Вы отвратительно знаете историю России !")
+        elif MainWindow.statik_n < 6:
+            self.label.setText("Вы ответили правильно примерно на половину вопросов !"+'\n'
+                               "Количество ваших правильных ответов : "+str(MainWindow.statik_n)+'\n'
+                               "Вы выбирали наобум или думали над ответами ?"+'\n'
+                               "Могло быть и хуже, но вам определённо ещё учиться и учиться !")
+        elif MainWindow.statik_n < 10:
+            self.label.setText("Вы осилили больше половины вопросов, а это уже неплохо."+'\n'
+                               "Количество ваших правильных ответов : "+str(MainWindow.statik_n)+'\n'
+                               "Вы хорошо учили историю !"+'\n'
+                               "Вы хорошо знаете историю России !")
+        else:
+            self.label.setText("Вы ответили правильно на все вопросы !"+'\n'
+                               "Количество ваших правильных ответов : "+str(MainWindow.statik_n)+'\n'
+                               "Как вам это удалось ?"+'\n'
+                               "Вы прекрасно знаете историю России !")
+        self.label.move(300, 200)
+
+class MainWindow(QMainWindow):
+    statik_n = 0
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        self.setWindowTitle('MainWindow')
+        statik_n = 0
+
+    def show_window_1(self):
+        self.w1 = Window1()
+        self.w1.button.clicked.connect(self.show_window_2)
+        self.w1.button.clicked.connect(self.show_window_1_answer)
+        self.w1.button.clicked.connect(self.show_window_2_image)
+        self.w1.button.clicked.connect(self.show_window_1_answer_image)
+        self.w1.button.clicked.connect(self.w1.close)
+        self.w1.show()
+
+    def show_window_1_image(self):
+        self.w28 = Window1_Image()
+        self.w28.show()
+
+    def show_window_1_answer_image(self):
+        self.w29 = Window1_Answer_Image()
+        self.w29.show()
+
+    def show_window_1_answer(self):
+        self.w17 = Window1_Answer()
+        self.w17.show()
+
+    def show_window_2(self):
+        self.w2 = Window2()
+        self.w2.button.clicked.connect(self.show_window_3)
+        self.w2.button.clicked.connect(self.show_window_2_answer)
+        self.w2.button.clicked.connect(self.show_window_3_image)
+        self.w2.button.clicked.connect(self.show_window_2_answer_image)
+        self.w2.button.clicked.connect(self.w2.close)
+        self.w2.show()
+
+    def show_window_2_image(self):
+        self.w30 = Window2_Image()
+        self.w30.show()
+
+    def show_window_2_answer_image(self):
+        self.w31 = Window2_Answer_Image()
+        self.w31.show()
+
+    def show_window_2_answer(self):
+        self.w18 = Window2_Answer()
+        self.w18.show()
+
+    def show_window_3(self):
+        self.w3 = Window3()
+        self.w3.button.clicked.connect(self.show_window_4)
+        self.w3.button.clicked.connect(self.show_window_3_answer)
+        self.w3.button.clicked.connect(self.show_window_4_image)
+        self.w3.button.clicked.connect(self.show_window_3_answer_image)
+        self.w3.button.clicked.connect(self.w3.close)
+        self.w3.show()
+
+    def show_window_3_image(self):
+        self.w32 = Window3_Image()
+        self.w32.show()
+
+    def show_window_3_answer_image(self):
+        self.w33 = Window3_Answer_Image()
+        self.w33.show()
+
+    def show_window_3_answer(self):
+        self.w19 = Window3_Answer()
+        self.w19.show()
+
+    def show_window_4(self):
+        self.w4 = Window4()
+        self.w4.button.clicked.connect(self.show_window_5)
+        self.w4.button.clicked.connect(self.show_window_4_answer)
+        self.w4.button.clicked.connect(self.show_window_5_image)
+        self.w4.button.clicked.connect(self.show_window_4_answer_image)
+        self.w4.button.clicked.connect(self.w4.close)
+        self.w4.show()
+
+    def show_window_4_image(self):
+        self.w34 = Window4_Image()
+        self.w34.show()
+
+    def show_window_4_answer_image(self):
+        self.w35 = Window4_Answer_Image()
+        self.w35.show()
+
+    def show_window_4_answer(self):
+        self.w20 = Window4_Answer()
+        self.w20.show()
+
+    def show_window_5(self):
+        self.w5 = Window5()
+        self.w5.button.clicked.connect(self.show_window_6)
+        self.w5.button.clicked.connect(self.show_window_5_answer)
+        self.w5.button.clicked.connect(self.show_window_6_image)
+        self.w5.button.clicked.connect(self.show_window_5_answer_image)
+        self.w5.button.clicked.connect(self.w5.close)
+        self.w5.show()
+
+    def show_window_5_image(self):
+        self.w36 = Window5_Image()
+        self.w36.show()
+
+    def show_window_5_answer_image(self):
+        self.w37 = Window5_Answer_Image()
+        self.w37.show()
+
+    def show_window_5_answer(self):
+        self.w21 = Window5_Answer()
+        self.w21.show()
+
+    def show_window_6(self):
+        self.w6 = Window6()
+        self.w6.button.clicked.connect(self.show_window_7)
+        self.w6.button.clicked.connect(self.show_window_6_answer)
+        self.w6.button.clicked.connect(self.show_window_7_image)
+        self.w6.button.clicked.connect(self.show_window_6_answer_image)
+        self.w6.button.clicked.connect(self.w6.close)
+        self.w6.show()
+
+    def show_window_6_image(self):
+        self.w38 = Window6_Image()
+        self.w38.show()
+
+    def show_window_6_answer_image(self):
+        self.w39 = Window6_Answer_Image()
+        self.w39.show()
+
+    def show_window_6_answer(self):
+        self.w22 = Window6_Answer()
+        self.w22.show()
+
+    def show_window_7(self):
+        self.w7 = Window7()
+        self.w7.button.clicked.connect(self.show_window_8)
+        self.w7.button.clicked.connect(self.show_window_7_answer)
+        self.w7.button.clicked.connect(self.show_window_8_image)
+        self.w7.button.clicked.connect(self.show_window_7_answer_image)
+        self.w7.button.clicked.connect(self.w7.close)
+        self.w7.show()
+
+    def show_window_7_image(self):
+        self.w40 = Window7_Image()
+        self.w40.show()
+
+    def show_window_7_answer_image(self):
+        self.w41 = Window7_Answer_Image()
+        self.w41.show()
+
+    def show_window_7_answer(self):
+        self.w23 = Window7_Answer()
+        self.w23.show()
+
+    def show_window_8(self):
+        self.w8 = Window8()
+        self.w8.button.clicked.connect(self.show_window_9)
+        self.w8.button.clicked.connect(self.show_window_8_answer)
+        self.w8.button.clicked.connect(self.show_window_9_image)
+        self.w8.button.clicked.connect(self.show_window_8_answer_image)
+        self.w8.button.clicked.connect(self.w8.close)
+        self.w8.show()
+
+    def show_window_8_image(self):
+        self.w42 = Window8_Image()
+        self.w42.show()
+
+    def show_window_8_answer_image(self):
+        self.w43 = Window8_Answer_Image()
+        self.w43.show()
+
+    def show_window_8_answer(self):
+        self.w24 = Window8_Answer()
+        self.w24.show()
+
+    def show_window_9(self):
+        self.w9 = Window9()
+        self.w9.button.clicked.connect(self.show_window_10)
+        self.w9.button.clicked.connect(self.show_window_9_answer)
+        self.w9.button.clicked.connect(self.show_window_10_image)
+        self.w9.button.clicked.connect(self.show_window_9_answer_image)
+        self.w9.button.clicked.connect(self.w9.close)
+        self.w9.show()
+
+    def show_window_9_image(self):
+        self.w44 = Window9_Image()
+        self.w44.show()
+
+    def show_window_9_answer_image(self):
+        self.w45 = Window9_Answer_Image()
+        self.w45.show()
+
+    def show_window_9_answer(self):
+        self.w25 = Window9_Answer()
+        self.w25.show()
+
+    def show_window_10(self):
+        self.w10 = Window10()
+        self.w10.button.clicked.connect(self.show_window_10_answer)
+        self.w10.button.clicked.connect(self.show_window_10_answer_image)
+        self.w10.button.clicked.connect(self.w10.close)
+        self.w10.show()
+
+    def show_window_10_image(self):
+        self.w46 = Window10_Image()
+        self.w46.show()
+
+    def show_window_10_answer_image(self):
+        self.w47 = Window10_Answer_Image()
+        self.w47.show()
+
+    def show_window_10_answer(self):
+        self.w26 = Window10_Answer()
+        self.w26.button.clicked.connect(self.show_window_100)
+        self.w26.button.clicked.connect(self.w17.close)
+        self.w26.button.clicked.connect(self.w18.close)
+        self.w26.button.clicked.connect(self.w19.close)
+        self.w26.button.clicked.connect(self.w20.close)
+        self.w26.button.clicked.connect(self.w21.close)
+        self.w26.button.clicked.connect(self.w22.close)
+        self.w26.button.clicked.connect(self.w23.close)
+        self.w26.button.clicked.connect(self.w24.close)
+        self.w26.button.clicked.connect(self.w25.close)
+        self.w26.button.clicked.connect(self.w26.close)
+        self.w26.button.clicked.connect(self.w28.close)
+        self.w26.button.clicked.connect(self.w29.close)
+        self.w26.button.clicked.connect(self.w30.close)
+        self.w26.button.clicked.connect(self.w31.close)
+        self.w26.button.clicked.connect(self.w32.close)
+        self.w26.button.clicked.connect(self.w33.close)
+        self.w26.button.clicked.connect(self.w34.close)
+        self.w26.button.clicked.connect(self.w35.close)
+        self.w26.button.clicked.connect(self.w36.close)
+        self.w26.button.clicked.connect(self.w37.close)
+        self.w26.button.clicked.connect(self.w38.close)
+        self.w26.button.clicked.connect(self.w39.close)
+        self.w26.button.clicked.connect(self.w40.close)
+        self.w26.button.clicked.connect(self.w41.close)
+        self.w26.button.clicked.connect(self.w42.close)
+        self.w26.button.clicked.connect(self.w43.close)
+        self.w26.button.clicked.connect(self.w44.close)
+        self.w26.button.clicked.connect(self.w45.close)
+        self.w26.button.clicked.connect(self.w46.close)
+        self.w26.show()
+
+    def show_window_100(self):
+        self.w27 = Window100()
+        self.w27.show()
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    w = MainWindow()
+    w.show_window_1()
+    w.show_window_1_image()
+    sys.exit(app.exec_())
